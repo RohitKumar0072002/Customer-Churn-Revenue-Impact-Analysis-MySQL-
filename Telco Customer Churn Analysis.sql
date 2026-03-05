@@ -111,10 +111,10 @@ SELECT
         WHEN ch.churn_label = 'Yes' THEN 1
         ELSE 0
     END) AS Churned,
-    CONCAT(ROUND(SUM((CASE
+    CONCAT(ROUND(SUM(CASE
                         WHEN ch.churn_label = 'Yes' THEN 1
                         ELSE 0
-                    END) / COUNT(*)) * 100,
+                    END) / COUNT(*) * 100,
                     2),
             '%') AS `Churn Rate Percentage`
 FROM
